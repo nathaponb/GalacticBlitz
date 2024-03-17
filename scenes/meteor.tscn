@@ -4,6 +4,8 @@
 [ext_resource type="Script" path="res://scenes/meteor.gd" id="1_skumk"]
 
 [node name="Meteor" type="Area2D"]
+position = Vector2(100, 50)
+rotation = -2.03156
 script = ExtResource("1_skumk")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

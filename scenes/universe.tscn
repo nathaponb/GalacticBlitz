@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=3 uid="uid://cv7pl0wwhw2sx"]
 
+[ext_resource type="Script" path="res://scenes/universe.gd" id="1_1r4ny"]
 [ext_resource type="PackedScene" uid="uid://68mg85gl6nen" path="res://scenes/player.tscn" id="1_6nfh2"]
 [ext_resource type="Texture2D" uid="uid://rteuhoamy2y5" path="res://graphics/bg/bg_space_seamless.png" id="1_b0uqv"]
-[ext_resource type="PackedScene" uid="uid://d3po1syxqcobh" path="res://scenes/meteor.tscn" id="3_6qegi"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4ftrk"]
 size = Vector2(27, 671)
@@ -11,6 +11,7 @@ size = Vector2(27, 671)
 size = Vector2(1198, 27.5)
 
 [node name="Universe" type="Node2D"]
+script = ExtResource("1_1r4ny")
 
 [node name="BG" type="Sprite2D" parent="."]
 position = Vector2(563, 328)
@@ -49,5 +50,9 @@ position = Vector2(1179, 0)
 position = Vector2(-600, 663)
 shape = SubResource("RectangleShape2D_vsqyw")
 
-[node name="Meteor" parent="." instance=ExtResource("3_6qegi")]
-position = Vector2(912, 111)
+[node name="Meteors" type="Node2D" parent="."]
+
+[node name="MeteorTimer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="MeteorTimer" to="." method="_on_meteor_timer_timeout"]
