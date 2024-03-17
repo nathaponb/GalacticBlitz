@@ -1,0 +1,53 @@
+[gd_scene load_steps=6 format=3 uid="uid://cv7pl0wwhw2sx"]
+
+[ext_resource type="PackedScene" uid="uid://68mg85gl6nen" path="res://scenes/player.tscn" id="1_6nfh2"]
+[ext_resource type="Texture2D" uid="uid://rteuhoamy2y5" path="res://graphics/bg/bg_space_seamless.png" id="1_b0uqv"]
+[ext_resource type="PackedScene" uid="uid://d3po1syxqcobh" path="res://scenes/meteor.tscn" id="3_6qegi"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4ftrk"]
+size = Vector2(27, 671)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vsqyw"]
+size = Vector2(1198, 27.5)
+
+[node name="Universe" type="Node2D"]
+
+[node name="BG" type="Sprite2D" parent="."]
+position = Vector2(563, 328)
+scale = Vector2(1.66231, 1.52322)
+texture = ExtResource("1_b0uqv")
+
+[node name="Player" parent="." instance=ExtResource("1_6nfh2")]
+position = Vector2(582, 404)
+
+[node name="Borders" type="Node2D" parent="."]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Borders"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/StaticBody2D"]
+position = Vector2(-13, 326)
+shape = SubResource("RectangleShape2D_4ftrk")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="Borders"]
+position = Vector2(1179, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/StaticBody2D2"]
+position = Vector2(-13, 326)
+shape = SubResource("RectangleShape2D_4ftrk")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="Borders"]
+position = Vector2(1179, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/StaticBody2D3"]
+position = Vector2(-599, -14)
+shape = SubResource("RectangleShape2D_vsqyw")
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="Borders"]
+position = Vector2(1179, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/StaticBody2D4"]
+position = Vector2(-600, 663)
+shape = SubResource("RectangleShape2D_vsqyw")
+
+[node name="Meteor" parent="." instance=ExtResource("3_6qegi")]
+position = Vector2(912, 111)
