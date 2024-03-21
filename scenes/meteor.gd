@@ -29,7 +29,7 @@ func _process(delta):
 
 #count the meteor hit user
 func _on_body_entered(body):
-	print(body)
+	$MeteorHitPlayerSound.play()
 	meteor_collision.emit()
 
 

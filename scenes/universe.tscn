@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://cv7pl0wwhw2sx"]
+[gd_scene load_steps=7 format=3 uid="uid://cv7pl0wwhw2sx"]
 
 [ext_resource type="Script" path="res://scenes/universe.gd" id="1_1r4ny"]
 [ext_resource type="PackedScene" uid="uid://68mg85gl6nen" path="res://scenes/player.tscn" id="1_6nfh2"]
 [ext_resource type="Texture2D" uid="uid://rteuhoamy2y5" path="res://graphics/bg/bg_space_seamless.png" id="1_b0uqv"]
+[ext_resource type="PackedScene" uid="uid://dfvobdilqtr8a" path="res://scenes/ui.tscn" id="4_qbg8m"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4ftrk"]
 size = Vector2(27, 671)
@@ -60,6 +61,8 @@ shape = SubResource("RectangleShape2D_vsqyw")
 autostart = true
 
 [node name="Lasers" type="Node2D" parent="."]
+
+[node name="UI" parent="." instance=ExtResource("4_qbg8m")]
 
 [connection signal="laser" from="Player" to="." method="_on_player_laser"]
 [connection signal="timeout" from="MeteorTimer" to="." method="_on_meteor_timer_timeout"]
