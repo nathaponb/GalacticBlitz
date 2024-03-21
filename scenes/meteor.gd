@@ -29,10 +29,17 @@ func _process(delta):
 
 #count the meteor hit user
 func _on_body_entered(body):
+	print(body)
 	meteor_collision.emit()
 
 
 func _on_area_entered(area):
-	# remove meteor and laser
-	area.queue_free()
+	area.queue_free() # remove laser
+
+	$MeteorExplodingShound.play() # play explosion sound
+	
+	# hide the graphic to wait for audio to play before remove the object
+	$Sprite2D.hide()
+	await get_tree().create_timer(0.5).timeout
+	
 	queue_free()

@@ -24,4 +24,5 @@ func _on_player_laser(pos):
 	
 #count the meteor hit user
 func on_meteor_collision():
-	print("count the UI")
+	print("collision")
+	pass
