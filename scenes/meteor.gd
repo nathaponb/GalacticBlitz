@@ -4,6 +4,8 @@ var rng = RandomNumberGenerator.new()
 var speed: int
 var rotation_speed: int
 
+signal  meteor_collision
+
 func _ready():
 	# randomize meteor position
 	var viewport_width = get_viewport().get_visible_rect().size[0]
@@ -24,6 +26,13 @@ func _ready():
 func _process(delta):
 	position += Vector2(0, 1.0) * speed * delta # move the meteor
 	rotation_degrees += rotation_speed * delta
-	
+
+#count the meteor hit user
 func _on_body_entered(body):
-	pass
+	meteor_collision.emit()
+
+
+func _on_area_entered(area):
+	# remove meteor and laser
+	area.queue_free()
+	queue_free()

@@ -55,4 +55,7 @@ shape = SubResource("RectangleShape2D_vsqyw")
 [node name="MeteorTimer" type="Timer" parent="."]
 autostart = true
 
+[node name="Lasers" type="Node2D" parent="."]
+
+[connection signal="laser" from="Player" to="." method="_on_player_laser"]
 [connection signal="timeout" from="MeteorTimer" to="." method="_on_meteor_timer_timeout"]

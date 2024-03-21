@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://68mg85gl6nen"]
+[gd_scene load_steps=4 format=3 uid="uid://68mg85gl6nen"]
 
 [ext_resource type="Texture2D" uid="uid://eb6f701pbied" path="res://graphics/png/playerShip1_red.png" id="1_4panl"]
 [ext_resource type="Script" path="res://scenes/player.gd" id="1_u3uhv"]
+[ext_resource type="AudioStream" uid="uid://b87xypl5cakbj" path="res://audio/sfx_laser3.mp3" id="3_x7y7d"]
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_u3uhv")
@@ -11,3 +12,10 @@ texture = ExtResource("1_4panl")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 polygon = PackedVector2Array(-9, -37, 8, -37, 12, -13, 36, 2, 41, 0, 44, -6, 49, -5, 46, 24, 43, 25, 41, 21, 35, 24, 14, 27, 7, 38, -8, 37, -14, 28, -37, 23, -41, 21, -43, 24, -45, 24, -49, -4, -46, -6, -41, 0, -36, 2, -13, -12)
+
+[node name="LaserStartPosition" type="Marker2D" parent="."]
+position = Vector2(0, -58)
+
+[node name="LaserShootSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_x7y7d")
+volume_db = -10.531
