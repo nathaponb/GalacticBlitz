@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scenes/universe.gd" id="1_1r4ny"]
 [ext_resource type="PackedScene" uid="uid://68mg85gl6nen" path="res://scenes/player.tscn" id="1_6nfh2"]
-[ext_resource type="Texture2D" uid="uid://rteuhoamy2y5" path="res://graphics/bg/bg_space_seamless.png" id="1_b0uqv"]
+[ext_resource type="PackedScene" uid="uid://cupgboagmfxy1" path="res://scenes/parallax_level.tscn" id="3_hf7do"]
 [ext_resource type="PackedScene" uid="uid://dfvobdilqtr8a" path="res://scenes/ui.tscn" id="4_qbg8m"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4ftrk"]
@@ -14,10 +14,7 @@ size = Vector2(1198, 27.5)
 [node name="Universe" type="Node2D"]
 script = ExtResource("1_1r4ny")
 
-[node name="BG" type="Sprite2D" parent="."]
-position = Vector2(563, 328)
-scale = Vector2(1.66231, 1.52322)
-texture = ExtResource("1_b0uqv")
+[node name="ParallaxLevel" parent="." instance=ExtResource("3_hf7do")]
 
 [node name="Player" parent="." instance=ExtResource("1_6nfh2")]
 position = Vector2(582, 404)
